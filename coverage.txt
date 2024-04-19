@@ -1,0 +1,15 @@
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 7.560s
+
+OK
+Name            Stmts   Miss  Cover   Missing
+---------------------------------------------
+src/config.py      26      7    73%   19-26, 36
+src/models.py     282     10    96%   584, 611-612, 641, 648, 654-655, 679, 685-686
+---------------------------------------------
+TOTAL             308     17    94%
+
+Las líneas que no están cubiertas no corresponden a los modelos principales de la aplicación.
+Estas corresponden a la clase GDrive, y su cobertura completa depende de errores que no
+podemos controlar. Por lo tanto, consideramos que la cobertura es aceptable.

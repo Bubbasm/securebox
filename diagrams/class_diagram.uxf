@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>875</x>
+      <y>847</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>/Application/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>861</x>
+      <y>903</y>
+      <w>91</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>TUIApplication</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>966</x>
+      <y>903</y>
+      <w>91</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>GUIApplication</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>903</y>
+      <w>91</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>CLIApplication</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>805</x>
+      <y>861</y>
+      <w>98</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;120.0;40.0;10.0;40.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>903</x>
+      <y>861</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>924</x>
+      <y>861</y>
+      <w>91</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+transparency=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;110.0;40.0;110.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>742</x>
+      <y>819</y>
+      <w>336</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>securebox.py
+halign=left
+layer=-99</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>602</x>
+      <y>182</y>
+      <w>210</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>SymmetricKey
+--
+- iv: bytes
+- salt: bytes
+- aeskey: bytes
+- prev_password: str
+--
+SymmetricKey(salt: bytes, iv: bytes)
++ generate_aes_key(pass: str): bytes
++ get_key_json(): dict
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>847</x>
+      <y>539</y>
+      <w>462</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>Container
+--
+- id: int
+- name: str
+- data: str
+--
+Container(id: int = None)
++ get_id(): int
++ get_name(): str
++ get_data(): str
++ set_name(): void
++ set_data(): void
++ get_container_info(): dict
+_+ from_data(pass: str, id: str, cipher: bytes, mac: bytes, salt: bytes, iv: bytes): Container_
++ encrypt(password: str): dict
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>903</x>
+      <y>175</y>
+      <w>301</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>Vault
+--
+- master_password: str
+--
+Vault(master_pass: str, path: str = None)
++ add_container(name: str, data: str): Container
++ remove_container(id: int): void
++ update_container(id: int, name: str, data: str): void
++ get_container(id: int): Container
++ get_containers(): list&lt;Container&gt;
++ encrypt(): dict
++ fetch_container(id: str, pass: str, path: str): Container
++ load_from_file(path: str): void
++ save_to_file(path: str): void
++ start_cloud(): void
++ download_backup(path: str): bool
++ upload_backup(path: str): bool
++ set_master_password(pass: str): void
++ regenerate_keys(): void
++ set_cloud_credentials(cred: dict, token: dict): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1274</x>
+      <y>175</y>
+      <w>245</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>GDrive
+--
+- credentials: dict
+- token: dict
+--
+GDrive(cred: dict, token: dict)
++ upload_file(path: str, name: str): bool
++ download_file(name: str, path: str): bool
++ delete_file(name: str): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>567</x>
+      <y>147</y>
+      <w>987</w>
+      <h>609</h>
+    </coordinates>
+    <panel_attributes>models.py
+halign=left
+layer=-99</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1134</x>
+      <y>840</y>
+      <w>196</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>interface.py
+halign=left
+layer=-99</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1197</x>
+      <y>882</y>
+      <w>70</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>TUI</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1008</x>
+      <y>420</y>
+      <w>98</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=2..*
+r2=- all_containers</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>805</x>
+      <y>189</y>
+      <w>112</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=- key</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>679</x>
+      <y>308</y>
+      <w>182</w>
+      <h>273</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=- key</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;370.0;240.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1197</x>
+      <y>189</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+r1=- cloud</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
